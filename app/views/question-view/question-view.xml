@@ -1,0 +1,34 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      actionBarHidden="true"
+      navigatingTo="questionPageNavigatingTo"
+      loaded="onQuestionPageLoaded"
+      backgroundColor="{{backgroundColor}}">
+    <GridLayout rows="auto, auto, *"
+                class="questionContainer">
+        <Label text="{{progress}}"
+            row="0"
+            class="progressText"/>
+        <Label text="{{question.questionText}}"
+            row="1"
+            class="questionText"/>
+        <ListView items="{{ question.answers }}"
+                row="3"
+                separatorColor="transparent"
+                verticalAlignment="bottom"
+                itemTap="onSelectMultipleChoiceAnswer">
+            <ListView.itemTemplate>
+                <ContentView>
+                    <GridLayout columns="*, auto"
+                                class="{{showCorrect ? 'answerItemContainer answerItemContainerShowCorrect' : 'answerItemContainer'}}">
+                        <Label text="{{ answerText }}"
+                            class="{{(isSelected && !isCorrect) ? 'answerItemText answerItemTextSelectedWrong' : 'answerItemText'}}"/>
+                        <Image col="1"
+                            visibility="{{isSelected ? 'visible' : 'hidden'}}"
+                            class="resultIndicator" src="{{isCorrect? 'res://vmark' : 'res://xmark'}}"
+                            stretch="aspectFill"/>
+                    </GridLayout>
+                </ContentView>
+            </ListView.itemTemplate>                
+        </ListView>
+    </GridLayout>
+</Page>

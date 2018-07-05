@@ -1,5 +1,5 @@
-const navigationModule = require("../../shared/navigation");
+const NavigationModule = require("../../shared/navigation");
 
 exports.onButtonTapped = function (args) {
-    navigationModule.goToQuizList();
+    NavigationModule.goToQuizList();
 }
