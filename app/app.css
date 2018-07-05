@@ -10,7 +10,7 @@ of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
 @import '~nativescript-theme-core/css/core.light.css';
-
+@import './tools/assets/platformStyles.css';
 /*
 For example, the following CSS rule changes the font size of all UI
 components that have the btn class name.
@@ -31,3 +31,9 @@ components that have the btn class name.
     border-width: 1;
     border-radius: 50%;
 }
+
+.quizImage{
+    border-radius: 50%;
+    background-size: cover;
+}
+
