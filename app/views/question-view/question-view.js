@@ -22,6 +22,7 @@ navigateToNextPage = function () {
     }
     else {
         quiz.finalizeScore();
+        NavigationModule.goToQuizSummaryView(quiz);
     };
 }
 

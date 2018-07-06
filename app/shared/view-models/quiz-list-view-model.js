@@ -14,6 +14,7 @@ function QuizListViewModel() {
     }
 
     addQuizzesToViewModel = function (quizzes) {
+        viewModel.splice(0);
         quizzes.forEach((quiz) => {
             let averageScore = getAverageScore(quiz);
             viewModel.push({
@@ -51,15 +52,13 @@ function QuizListViewModel() {
     }
 
     viewModel.loadQuizzes = function () {
-        if (viewModel.length === 0) {
-            if (config.useMockData) {
-                return new Promise(resolve =>
-                    setTimeout(resolve, 1000)
-                ).then(loadMockDataQuizzes);
-            }
-            else {
-                return loadBackEndDataQuizzes();
-            }
+        if (config.useMockData) {
+            return new Promise(resolve =>
+                setTimeout(resolve, 1000)
+            ).then(loadMockDataQuizzes);
+        }
+        else {
+            return loadBackEndDataQuizzes();
         }
     }
 
