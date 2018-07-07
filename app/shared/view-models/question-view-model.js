@@ -24,6 +24,21 @@ function questionViewModel(question) {
         return chosenAnswer.isCorrect;
     };
 
+    getLongitudeDistance = function (longitude1, longitude2) {
+        let rawDistance = Math.abs(longitude1 - longitude2);
+        return Math.min(rawDistance, 360 - rawDistance)
+    }
+
+    viewModel.checkMapLocationAnswer = function (chosenLatitude, chosenLongitude) {
+        let locationAnswer = viewModel.get("locationAnswer");
+        let distanceSquared = Math.pow((chosenLatitude - locationAnswer.latitude), 2) +
+            Math.pow(getLongitudeDistance(chosenLongitude, locationAnswer.longitude), 2);
+        let distance = Math.sqrt(distanceSquared);
+        let answerIsCorrect = distance < viewModel.get("errorMarginRadius");
+        return answerIsCorrect;
+    };
+
+
     return viewModel;
 
 }

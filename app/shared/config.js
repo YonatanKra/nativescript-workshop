@@ -1,7 +1,7 @@
 const platformModule = require("platform");
 
-const useLocalMockData = false;
-const serverIsRemote = true;
+const useLocalMockData = true;
+const serverIsRemote = false;
 
 let accessPath;
 let port = ":3001/";
