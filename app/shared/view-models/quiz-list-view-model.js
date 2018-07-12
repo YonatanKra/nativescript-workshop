@@ -47,14 +47,7 @@ function QuizListViewModel() {
     };
 
     loadMockDataQuizzes = function () {
-        viewModel.loadQuizzes = function () {
-            if (config.useMockData) {
-                loadMockDataQuizzes();
-            }
-            else {
-                loadBackEndDataQuizzes();
-            }
-        }
+        addQuizzesToViewModel(mockQuizzesData);
     }
 
     viewModel.loadQuizzes = function () {
